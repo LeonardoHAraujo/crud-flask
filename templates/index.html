@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <title>Crud - Flask</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+  </head>
+  <body>
+    <h1 class="center top-container">Crud Flask</h1>
+
+    <div class="container top-container">
+      <button type="button" class="btn btn-info bottom-btn">
+          <a href="/create" class="none">Create</a>
+      </button>
+
+      <table class="table table-borderless">
+        <thead class="center">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody class="center">
+          {% for person in persons %}
+            <tr>
+              <th scope="row">{{ person.id }}</th>
+              <td>{{ person.firstName }}</td>
+              <td>{{ person.lastName }}</td>
+              <td>
+                <button type="button" class="btn btn-warning">
+                    <a href="/edit/{{ person.id }}" class="none">Edit</a>
+                </button>
+                <button type="button" class="btn btn-danger">
+                    <a href="/delete/{{ person.id }}" class="none">Delete</a>
+                </button>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
